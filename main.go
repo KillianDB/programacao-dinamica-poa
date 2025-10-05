@@ -1,12 +1,30 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "strconv"
+)
 
 var Mem = make(map[int]int)
 
 func main() {
-	fmt.Println("1 resultado para 1777: ", diagnosticadorDeProblemaRecursivo(1777))
-    fmt.Println("2 resultado para 1777: ", diagnosticadorDeProblemaComMemorizacao(1777))
+    var input string
+    fmt.Print("Digite um número inteiro positivo: ")
+    fmt.Scanln(&input)
+
+    n, err := strconv.Atoi(input)
+    if err != nil {
+        fmt.Println("Erro: o valor digitado deve ser um número inteiro válido")
+        return
+    }
+
+    if n <= 0 {
+        fmt.Println("Erro: o número deve ser positivo")
+        return
+    }
+
+    fmt.Println("1 resultado para", n, ":", diagnosticadorDeProblemaRecursivo(n))
+    fmt.Println("2 resultado para", n, ":", diagnosticadorDeProblemaComMemorizacao(n))
 }
 
 //? Operações possíveis: -1, x/2 (exata), x/3 (exata)
