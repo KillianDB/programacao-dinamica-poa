@@ -23,8 +23,9 @@ func main() {
         return
     }
 
-    fmt.Println("1 resultado para", n, ":", diagnosticadorDeProblemaRecursivo(n))
-    fmt.Println("2 resultado para", n, ":", diagnosticadorDeProblemaComMemorizacao(n))
+    fmt.Println("1º resultado para", n, ":", diagnosticadorDeProblemaRecursivo(n))
+    fmt.Println("2º resultado para", n, ":", diagnosticadorDeProblemaComMemorizacao(n))
+	fmt.Println("3º resultado para", n, ":", diagnosticadorDeProblemaNaoRecursivo(n))
 }
 
 //? Operações possíveis: -1, x/2 (exata), x/3 (exata)
@@ -38,10 +39,10 @@ func diagnosticadorDeProblemaRecursivo(n int) int {
 		return 0
 	}
 
-    if n == 1 || n%7 == 0 {
-        fmt.Printf("Encontrado %d, retornando 1\n", n)
-        return 1
-    }
+	if n == 1 || n%7 == 0 {
+		fmt.Printf("Encontrado %d, retornando \n", n)
+		return 1
+	}
 
     return diagnosticadorDeProblemaRecursivo(n-1) + 1
 }
@@ -52,10 +53,10 @@ func diagnosticadorDeProblemaComMemorizacao(n int) int {
 
 	if n == 0 {
 		return 0
-	}
-
+	} 
+	
 	if n == 1 || n%7 == 0 {
-		fmt.Printf("Encontrado %d, retornando 1\n", n)
+		fmt.Printf("Encontrado %d, retornando \n", n)
 		return 1
 	}
 
@@ -68,6 +69,26 @@ func diagnosticadorDeProblemaComMemorizacao(n int) int {
 	return Mem[n]
 }
 
-// //# Versão não-recursiva
-// func diagnosticadorDeProblemaNaoRecursivo(n int) int {
-// }
+//# Versão não-recursiva
+func diagnosticadorDeProblemaNaoRecursivo(n int) int {
+
+	if n == 0 {
+		return 0
+	}
+
+	if n == 1 || n%7 == 0 {
+		fmt.Printf("Encontrado %d, retornando \n", n)
+		return 1
+	}
+	
+	temp := 1
+
+	for n != 0 && n > 1 && n%7 != 0 {
+		fmt.Printf("Analisando %d\n", n)
+		n--
+		temp++
+	}
+
+	fmt.Printf("Encontrado %d, retornando %d\n", n, temp)
+	return temp
+}
