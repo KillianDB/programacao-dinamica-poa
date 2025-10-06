@@ -24,3 +24,10 @@ Por exemplo, para 780 poderíamos ter 10 operações: `/2 /2 /3 -1 -1 /3 /3 -1 /
 Perceba que podem existir várias formas de chegar a 1, todas com o menor tamanho possível.
 
 Faça seu programa receber os argumentos pela linha de comando!
+
+## Roadmap da construção da solução
+
+Inicialmente me faltou interpretação de texto e fiz uma solução que não atendia a todas as demandas do exercício.
+
+Posteriormente notei que deveria fazer o uso das operações disponíveis, levando em consideração qual a melhor. 
+    A segunda solução gerou um algoritmo greedy, que achava uma solução, mas não a solução ótima. A partir dela fui refinando as validações de cada caso e melhorando o código, separando em funções cada operação compartilhada, conseguindo chegar nessa ultima versão, que passou nos meus testes pessoais. Fiz questão de deixar os prints para facilitar a visualização do resultado de cada função, com até que número ela decresceu e quais operações foram utilizadas para tal.
